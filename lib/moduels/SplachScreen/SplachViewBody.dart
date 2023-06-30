@@ -44,7 +44,8 @@ class _SplachViewBoodyState extends State<SplachViewBoody> with SingleTickerProv
                  ),
                );
              },
-           )
+           ),
+          Row(),
         ],
       ),
     );
