@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../../shared/assets.dart';
-import '../homescreen/views/HomeView.dart';
-import 'widgets/SlidingText.dart';
+import '../../../shared/assets.dart';
+import '../../homescreen/views/HomeView.dart';
+import 'SlidingText.dart';
 
 
 class SplachViewBoody extends StatefulWidget {
