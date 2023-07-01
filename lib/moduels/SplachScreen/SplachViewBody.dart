@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import '../../shared/assets.dart';
-import 'SlidingText.dart';
+import '../homescreen/views/HomeView.dart';
+import 'widgets/SlidingText.dart';
 
 
 class SplachViewBoody extends StatefulWidget {
@@ -19,13 +21,16 @@ class _SplachViewBoodyState extends State<SplachViewBoody> with SingleTickerProv
   void initState() {
     // TODO: implement initState
     super.initState();
-    animationController=AnimationController(vsync: this, duration:const Duration(seconds: 1));
-    slidingAnimation= Tween<Offset>(begin: const Offset(0, 10), end: Offset.zero)
-        .animate(animationController);
-    animationController.forward();
-
+    intialAnimiate();
+    navigateToHome();
   }
 
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+    animationController.dispose();
+  }
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
@@ -36,10 +41,23 @@ class _SplachViewBoodyState extends State<SplachViewBoody> with SingleTickerProv
          const Image(image:AssetImage(AssetsData.logo)),
           const SizedBox(height: 4,),
            SlidingText(slidingAnimation: slidingAnimation),
-          Column(),
         ],
       ),
     );
+  }
+  void intialAnimiate() {
+    animationController=AnimationController(vsync: this, duration:const Duration(seconds: 10));
+    slidingAnimation= Tween<Offset>(begin: const Offset(0, 10), end: Offset.zero)
+        .animate(animationController);
+    animationController.forward();
+  }
+  void navigateToHome() {
+    Future.delayed(const Duration(seconds: 2),(){
+      Get.to(()=>
+      const HomeView(),
+        transition:Transition.fadeIn,
+      );
+    },);
   }
 }
 

@@ -2,7 +2,7 @@ import 'package:bookapp/shared/constant.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import 'moduels/SplachScreen/SplachView.dart';
+import 'moduels/SplachScreen/widgets/SplachView.dart';
 
 void main() {
   runApp(const Bookly());
