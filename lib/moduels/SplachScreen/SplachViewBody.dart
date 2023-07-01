@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../shared/assets.dart';
+import 'SlidingText.dart';
 
 
 class SplachViewBoody extends StatefulWidget {
@@ -34,20 +35,11 @@ class _SplachViewBoodyState extends State<SplachViewBoody> with SingleTickerProv
         children: [
          const Image(image:AssetImage(AssetsData.logo)),
           const SizedBox(height: 4,),
-           AnimatedBuilder(
-             animation: slidingAnimation,
-             builder: (context, _) {
-               return SlideTransition(
-                 position: slidingAnimation,
-                 child:const Text('Read Free Book',
-                   textAlign: TextAlign.center,
-                 ),
-               );
-             },
-           ),
+           SlidingText(slidingAnimation: slidingAnimation),
           Column(),
         ],
       ),
     );
   }
 }
+
