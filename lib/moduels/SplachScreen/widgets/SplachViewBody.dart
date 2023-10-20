@@ -1,8 +1,7 @@
-import 'package:bookapp/shared/constant.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:go_router/go_router.dart';
+import '../../../shared/componnent/app_roter.dart';
 import '../../../shared/assets.dart';
-import '../../homescreen/views/HomeView.dart';
 import 'SlidingText.dart';
 
 
@@ -47,17 +46,18 @@ class _SplachViewBoodyState extends State<SplachViewBoody> with SingleTickerProv
     );
   }
   void intialAnimiate() {
-    animationController=AnimationController(vsync: this, duration:const Duration(seconds: 10));
-    slidingAnimation= Tween<Offset>(begin: const Offset(0, 2), end: Offset.zero)
+    animationController=AnimationController(vsync: this, duration:const Duration(seconds:1));
+    slidingAnimation= Tween<Offset>(begin: const Offset(0, 1), end: Offset.zero)
         .animate(animationController);
     animationController.forward();
   }
   void navigateToHome() {
-    Future.delayed(const Duration(seconds: 5),(){
-      Get.to(()=>
-      const HomeView(),
-        transition:Transition.fadeIn,duration: kTranstionDuration,
-      );
+    Future.delayed(const Duration(seconds:2),(){
+      // Get.to(()=>
+      // const HomeView(),
+      //   transition:Transition.fadeIn,duration: kTranstionDuration,
+      // );
+      GoRouter.of(context).push(AppRouter.kHomeView);
     },);
   }
 }
