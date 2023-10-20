@@ -9,7 +9,7 @@ class SearchView extends StatelessWidget {
     return const Scaffold(
       body: Padding(
         padding: EdgeInsets.all(20.0),
-        child: SearchViewDoody(),
+        child: SearchViewDody(),
       ),
     );
   }

@@ -41,7 +41,7 @@ class BestSellerListViewItem extends StatelessWidget {
               children: [
                 SizedBox(
                   width: MediaQuery.of(context).size.width*.5,
-                  child: Text( books.volumeInfo.authors![0],
+                  child: Text( books.volumeInfo.authors?[0] ??'',
                     style: Styles.textStyle20.copyWith(
                       fontFamily: kGtSectraFine,
                     ),
@@ -50,7 +50,7 @@ class BestSellerListViewItem extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 3,),
-                 Text( books.volumeInfo.authors![0],
+                 Text( books.volumeInfo.authors?[0]??'',
                   style: Styles.textStyle14,),
                 const SizedBox(height: 3,),
                  Row(children: [

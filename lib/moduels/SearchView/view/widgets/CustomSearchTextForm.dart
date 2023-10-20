@@ -1,18 +1,25 @@
 import 'package:flutter/material.dart';
+import '../manger/search_cubit.dart';
 
 class CustomSearchTextForm extends StatelessWidget {
   const CustomSearchTextForm({
-    super.key,
+    super.key, required this.cubit,
   });
-
+final SearchCubit cubit;
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      onChanged: (value){
+        if (value != '') {
+          cubit.fetchBooksSearch(value);
+        }
+      },
       decoration: InputDecoration(
         hintText: 'search',
-        suffixIcon: IconButton(onPressed: (){}, icon:const Icon(Icons.search),),
+        suffixIcon: IconButton(
+          onPressed: ( ) {}, icon: const Icon(Icons.search),),
         enabledBorder: buildOutlineInputBorder(),
-        focusedBorder:  buildOutlineInputBorder(),
+        focusedBorder: buildOutlineInputBorder(),
       ),
     );
   }
@@ -20,7 +27,7 @@ class CustomSearchTextForm extends StatelessWidget {
   OutlineInputBorder buildOutlineInputBorder() {
     return OutlineInputBorder(
       borderRadius: BorderRadius.circular(15),
-      borderSide:const BorderSide(color:Colors.white),
+      borderSide: const BorderSide(color: Colors.white),
     );
   }
 }
